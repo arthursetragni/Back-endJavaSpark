@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <title>Woman Angel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="CSS/index.css" rel="stylesheet">
+  <link href="CSS/cabecalho.css" rel="stylesheet">
+  <link href="CSS/footer.css" rel="stylesheet">
+  <link href="CSS/reset.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/525c49cbb7.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="imgs/logo/White.png">
+</head>
+
+<body onload="imprimeDados()">
+
+
+<!--Cabeçalho-->
+<div class="header" id="header">
+    <div class="logo_header">
+        <a href="index.html">
+            <img src="imgs/logo/White.png" alt="Login">
+        </a>
+    </div>  
+  
+    <div class="menu">
+        <a href="users/central.html">
+            <img src="imgs/cabecalho/usuario.png" alt="Usuário">
+        </a>
+    </div>
+</div>
+<!--Fim - Cabeçalho-->
+
+
+  <div class="espaco-navbar"></div>
+
+  <div class="woman-angel"></div>
+
+  <div class="aplicacoes">
+    <a href="Pesquisa/pesquisa.html"><button class="btnnavbar">Procurar Ponto Perigoso</button></a>
+    <a href="PontosPerigosos.html"><button class="btncadastrar">Denunciar Ponto Perigoso</button></a>
+  </div>
+
+  <div class="destaque">
+    <h1>EM ALTA</h1>
+    <div class="pontosD">
+      <div id="destacados"></div>
+    </div>
+
+  </div>
+
+  
+<!--Rodape-->
+<main></main>
+<footer>
+    <div id="footer_content">
+        
+        <ul class="footer-list">
+            <li>
+                <h3>Projeto</h3>
+            </li>
+            <li>
+                <a href="#" class="footer-link">Angel Woman - Webapp Final</a>
+            </li>
+            <li>
+                <a href="#" class="footer-link">2/2023 - Ciência da Computação</a>
+            </li>
+            <li>
+                <a href="#" class="footer-link">Puc Minas - Coração Eucarístico</a>
+            </li>
+            <li>
+                <a href="#" class="footer-link">Trabalho Interdisciplinar II Back-End</a>
+            </li>
+        </ul>
+    
+        <ul class="footer-list">
+            <li>
+                <h3>Autores</h3>
+            </li>
+            <li>    
+                <a href="https://github.com/arthursetragni" class="footer-link">Arthur Leite Setragni</a>
+            </li>
+            <li>
+                <a href="https://github.com/DomynicBl" class="footer-link">Domynic Barros Lima</a>
+            </li>
+            <li>
+                <a href="https://github.com/Gust4vinho07" class="footer-link">Gustavo Sales Santos</a>
+            </li>
+            <li>
+                <a href="https://github.com/Juanpablozim" class="footer-link">Juan Pablo Ramos</a>
+            </li>
+        </ul>
+    </div>
+      
+    <div id="footer_copyright">
+        &#169 
+        2023 all rights reserved
+    </div>
+</footer>
+<!--Fim - Rodape-->
+
+
+    <!-- Dentro do corpo do arquivo index.html -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function imprimeDados() {
+        $.ajax({
+            url: 'http://localhost:6798/produto',
+            dataType: 'json', // Defina o tipo de dados esperado
+            success: function (data) {
+                // O parâmetro "data" já é um objeto JavaScript, não há necessidade de parse.
+                var denuncias = data;
+
+                // Construa o HTML dos destaques com base nas denúncias
+                var htmlDestacados = '';
+                for (var i = 0; i < denuncias.length; i++) {
+                    htmlDestacados += '<div class="destacado">';
+                    htmlDestacados += '<h4>' + denuncias[i].categoria + '</h4>';
+                    htmlDestacados += '<h2>' + denuncias[i].localizacao + '</h2>';
+                    htmlDestacados += '<h3>' + denuncias[i].descricao + '</h3>';
+                    htmlDestacados += '</div></a>';
+                    htmlDestacados += '<br>';
+                }
+
+                // Preenche a div de destaques com o HTML gerado
+                $('#destacados').html(htmlDestacados);
+            },
+            error: function (error) {
+                console.error('Erro ao obter dados do servidor:', error);
+            }
+        });
+    }
+</script>
+
+
+
+  <script>
+    
+//   function imprimeDados() {
+// 	    let tela = document.getElementById('destacados');
+// 	    let strHTML = '';
+
+	    
+// 	    fetch('../produto')
+// 	        .then(response => response.json())
+// 	        .then(objDados => {
+// 	            let contador = 0;
+
+	            
+// 	            for (let i = (objDados.length - 1); (i >= 0) && (contador < 10); i = i - 1) {
+// 	                strHTML += `<a> <p>ID: ${objDados[i].id}</p>
+// 	                    <p>Localização: ${objDados[i].localizacao}</p>
+// 	                    <p>Descrição: ${objDados[i].descricao}</p>
+// 	                    <p>Categoria: ${objDados[i].categoria}</p>
+// 	                    <p>Data: ${objDados[i].data}</p>
+// 	                    <p>ID d Usuário: ${objDados[i].idUsuario}</p></a>`;
+// 	                contador = contador + 1;
+// 	            }
+
+	            
+// 	            tela.innerHTML = strHTML;
+// 	        })
+// 	        .catch(error => {
+// 	            console.error('Erro ao obter dados do backend:', error);
+	            
+// 	        });
+	//}
+  </script>
+
+</body>
+
+</html>

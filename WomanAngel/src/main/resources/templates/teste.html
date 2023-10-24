@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Método POST</title>
+</head>
+<body>
+    <h1>Formulário de Teste POST</h1>
+
+    <form action="http://localhost:6798/produto" method="POST" id="denunciaForm">
+        <label for="id">id:</label>
+        <input type="number" id="id" name="id" required>
+        <br>
+        <label for="localizacao">localizacao:</label>
+        <input type="text" id="localizacao" name="localizacao" required>
+        <br>
+        <label for="descricao">descricao:</label>
+        <input type="text" id="descricao" name="descricao" required>
+        <br>
+        <label for="categoria">categoria:</label>
+        <input type="text" id="categoria" name="categoria" required>
+        <br>
+        <label for="data">data:</label>
+        <input type="text" id="data" name="data" required>
+        <br>
+        <label for="idUsuario">id usuario:</label>
+        <input type="number" id="idUsuario" name="idUsuario" required>
+        <br>
+        <button type="submit">Enviar</button>
+        
+       
+        <label for="idBuscar">Buscar por ID:</label>
+        <input type="number" id="idBuscar" name="idBuscar" required>
+        <button type="button" onclick="obterDetalhes()">Obter Detalhes</button>
+    </form>
+
+    <script>
+        function obterDetalhes() {
+            const form = document.getElementById("denunciaForm");
+            var formData = new FormData(form);
+            var idDigitado = formData.get("idBuscar"); // Usando o novo campo de entrada
+
+            window.location.href = "http://localhost:6798/produto/" + idDigitado;
+        }
+    </script>
+</body>
+</html>

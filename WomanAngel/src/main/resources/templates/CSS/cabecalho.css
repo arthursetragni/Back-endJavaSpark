@@ -1,0 +1,31 @@
+/* Cabeçalho */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--cor-texto);
+    background-color: var(--cor-primaria);
+    box-shadow: 1px 1px 30px var(--sombra-cor);
+    padding: 1.2% 3%;
+  }
+  
+  .logo_header img {
+    width: 150px;
+    object-fit: cover;
+  }
+  
+  .menu {
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+  }
+  
+  .menu a {
+    margin-left: 10px;
+  }
+  
+  .menu img {
+   
+    height: 59.21px;
+    object-fit: cover;
+  }
