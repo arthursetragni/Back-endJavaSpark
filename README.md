@@ -19,10 +19,7 @@ O back-end está localizado na pasta `src/main/java` e é dividido nas seguintes
 - **Service:** Comunica-se com o back-end e processa as respostas.
 - **DAO:** Estabelece a conexão direta com o banco de dados.
 - **Model:** Contém as funções da classe Denuncia.
-
-
-
-Os arquivos do front-end estão na pasta src/main/resources/templates. Para iniciar os testes, recomendamos começar com o arquivo index.html.
+- **Os arquivos do front-end estão na pasta src/main/resources/templates. Para iniciar os testes, recomendamos começar com o arquivo index.html**.
 
 ## Inicialização Local
 
